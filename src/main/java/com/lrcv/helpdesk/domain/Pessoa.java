@@ -1,7 +1,6 @@
 package com.lrcv.helpdesk.domain;
 
 import java.io.Serializable;
-
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Objects;
@@ -23,14 +22,14 @@ import com.lrcv.helpdesk.domain.enums.Perfil;
 @Entity
 public abstract class Pessoa implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Integer id;
-	
+
 	@Column()
 	protected String nome;
-	
+
 	@Column(unique = true)
 	protected String cpf;
 
@@ -39,14 +38,14 @@ public abstract class Pessoa implements Serializable {
 
 	@Column()
 	protected String senha;
-	
+
 	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name = "PERFIS")
-	protected Set<Integer> perfis= new HashSet<>();
-	
+	protected Set<Integer> perfis = new HashSet<>();
+
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	protected LocalDate dataCriacao = LocalDate.now();
-	
+
 	public Pessoa() {
 		super();
 		addPerfil(Perfil.CLIENTE);
@@ -134,6 +133,5 @@ public abstract class Pessoa implements Serializable {
 		Pessoa other = (Pessoa) obj;
 		return Objects.equals(cpf, other.cpf) && Objects.equals(id, other.id);
 	}
-	
-	
+
 }
