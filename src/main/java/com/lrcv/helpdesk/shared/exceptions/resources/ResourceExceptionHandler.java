@@ -1,6 +1,9 @@
-package com.lrcv.helpdesk.resources.exceptions;
+package com.lrcv.helpdesk.shared.exceptions.resources;
 
 import javax.servlet.http.HttpServletRequest;
+
+import com.lrcv.helpdesk.shared.exceptions.services.DataIntegrityViolationException;
+import com.lrcv.helpdesk.shared.exceptions.services.ObjectNotFoundException;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,9 +11,6 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-
-import com.lrcv.helpdesk.services.exceptions.DataIntegrityViolationException;
-import com.lrcv.helpdesk.services.exceptions.ObjectNotFoundException;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {

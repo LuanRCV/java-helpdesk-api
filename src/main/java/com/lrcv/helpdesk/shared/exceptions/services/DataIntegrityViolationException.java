@@ -1,4 +1,4 @@
-package com.lrcv.helpdesk.services.exceptions;
+package com.lrcv.helpdesk.shared.exceptions.services;
 
 public class DataIntegrityViolationException extends RuntimeException {
 	private static final long serialVersionUID = 1L;

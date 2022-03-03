@@ -25,7 +25,7 @@ import org.hibernate.validator.constraints.br.CPF;
 @Entity
 @Table(name = "PEOPLE")
 public abstract class Person implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -54,8 +54,6 @@ public abstract class Person implements Serializable {
 
     public Person() {
         super();
-
-        this.addProfile(Profile.CUSTOMER);
     }
 
     public Person(Integer id, String name, String cpf, String email, String password) {
@@ -66,8 +64,6 @@ public abstract class Person implements Serializable {
         this.cpf = cpf;
         this.email = email;
         this.password = password;
-
-        this.addProfile(Profile.CUSTOMER);
     }
 
     public Integer getId() {

@@ -1,4 +1,4 @@
-package com.lrcv.helpdesk.resources.exceptions;
+package com.lrcv.helpdesk.shared.exceptions.resources;
 
 import java.util.ArrayList;
 import java.util.List;
