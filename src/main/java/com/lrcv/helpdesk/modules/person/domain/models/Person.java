@@ -46,7 +46,7 @@ public abstract class Person implements Serializable {
     protected String password;
 
     @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "POFILES")
+    @CollectionTable(name = "PROFILES")
     protected Set<Integer> profiles = new HashSet<>();
 
     @JsonFormat(pattern = "dd/MM/yyyy")
