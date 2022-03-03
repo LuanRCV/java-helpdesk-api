@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lrcv.helpdesk.modules.call.domain.models.Call;
 import com.lrcv.helpdesk.modules.person.domain.enums.Profile;
 import com.lrcv.helpdesk.modules.person.domain.models.Person;
+import com.lrcv.helpdesk.modules.technical.domain.models.dtos.TechnicalDTO;
 
 @Entity
 public class Technical extends Person {
@@ -26,6 +27,13 @@ public class Technical extends Person {
 
     public Technical(Integer id, String name, String cpf, String email, String password) {
         super(id, name, cpf, email, password);
+
+        this.addProfile(Profile.TECHNICAL);
+    }
+
+    public Technical(TechnicalDTO technicalDTO) {
+        super(technicalDTO.getId(), technicalDTO.getName(), technicalDTO.getCpf(), technicalDTO.getEmail(),
+                technicalDTO.getPassword());
 
         this.addProfile(Profile.TECHNICAL);
     }

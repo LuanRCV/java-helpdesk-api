@@ -11,6 +11,7 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.lrcv.helpdesk.modules.person.domain.enums.Profile;
+import com.lrcv.helpdesk.modules.technical.domain.models.Technical;
 
 public class TechnicalDTO implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -32,21 +33,26 @@ public class TechnicalDTO implements Serializable {
     protected Set<Integer> profiles = new HashSet<>();
 
     @JsonFormat(pattern = "dd/MM/yyyy")
-    protected LocalDate dataCriacao = LocalDate.now();
+    protected LocalDate createdAt = LocalDate.now();
 
     public TechnicalDTO() {
+        super();
 
+        this.addProfile(Profile.TECHNICAL);
     }
 
-    public TechnicalDTO(Integer id, String name, String cpf, String email, String password, Set<Integer> profiles,
-            LocalDate dataCriacao) {
-        this.id = id;
-        this.name = name;
-        this.cpf = cpf;
-        this.email = email;
-        this.password = password;
-        this.profiles = profiles;
-        this.dataCriacao = dataCriacao;
+    public TechnicalDTO(Technical technical) {
+        super();
+
+        this.id = technical.getId();
+        this.name = technical.getName();
+        this.cpf = technical.getCpf();
+        this.email = technical.getEmail();
+        this.password = technical.getPassword();
+        this.profiles = technical.getProfiles().stream().map(profile -> profile.getCode()).collect(Collectors.toSet());
+        this.createdAt = technical.getCreatedAt();
+
+        this.addProfile(Profile.TECHNICAL);
     }
 
     public Integer getId() {
@@ -97,12 +103,12 @@ public class TechnicalDTO implements Serializable {
         this.profiles.add(profile.getCode());
     }
 
-    public LocalDate getDataCriacao() {
-        return this.dataCriacao;
+    public LocalDate getCreatedAt() {
+        return this.createdAt;
     }
 
-    public void setDataCriacao(LocalDate dataCriacao) {
-        this.dataCriacao = dataCriacao;
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
     }
 
     @Override
@@ -113,28 +119,13 @@ public class TechnicalDTO implements Serializable {
             return false;
         }
         TechnicalDTO technicalDTO = (TechnicalDTO) o;
-        return Objects.equals(id, technicalDTO.id) && Objects.equals(name, technicalDTO.name)
-                && Objects.equals(cpf, technicalDTO.cpf) && Objects.equals(email, technicalDTO.email)
-                && Objects.equals(password, technicalDTO.password) && Objects.equals(profiles, technicalDTO.profiles)
-                && Objects.equals(dataCriacao, technicalDTO.dataCriacao);
+        return Objects.equals(id, technicalDTO.id) && Objects.equals(cpf, technicalDTO.cpf)
+                && Objects.equals(email, technicalDTO.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, cpf, email, password, profiles, dataCriacao);
-    }
-
-    @Override
-    public String toString() {
-        return "{" +
-                " id='" + getId() + "'" +
-                ", name='" + getName() + "'" +
-                ", cpf='" + getCpf() + "'" +
-                ", email='" + getEmail() + "'" +
-                ", password='" + getPassword() + "'" +
-                ", profiles='" + getProfiles() + "'" +
-                ", dataCriacao='" + getDataCriacao() + "'" +
-                "}";
+        return Objects.hash(id, cpf, email);
     }
 
 }
