@@ -1,4 +1,4 @@
-package com.lrcv.helpdesk.modules.person.controllers;
+package com.lrcv.helpdesk.modules.technical.controllers;
 
 import java.net.URI;
 import java.util.List;
@@ -6,13 +6,13 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
-import com.lrcv.helpdesk.modules.person.domain.models.Technical;
-import com.lrcv.helpdesk.modules.person.domain.models.dtos.TechnicalDTO;
-import com.lrcv.helpdesk.modules.person.services.CreateTechnicalService;
-import com.lrcv.helpdesk.modules.person.services.DeleteTechnicalService;
-import com.lrcv.helpdesk.modules.person.services.ListTechnicalService;
-import com.lrcv.helpdesk.modules.person.services.ShowTechnicalService;
-import com.lrcv.helpdesk.modules.person.services.UpdateTechnicalService;
+import com.lrcv.helpdesk.modules.technical.domain.models.Technical;
+import com.lrcv.helpdesk.modules.technical.domain.models.dtos.TechnicalDTO;
+import com.lrcv.helpdesk.modules.technical.services.CreateTechnicalService;
+import com.lrcv.helpdesk.modules.technical.services.DeleteTechnicalService;
+import com.lrcv.helpdesk.modules.technical.services.ListTechnicalService;
+import com.lrcv.helpdesk.modules.technical.services.ShowTechnicalService;
+import com.lrcv.helpdesk.modules.technical.services.UpdateTechnicalService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

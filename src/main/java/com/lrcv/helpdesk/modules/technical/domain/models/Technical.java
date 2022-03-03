@@ -1,4 +1,4 @@
-package com.lrcv.helpdesk.modules.person.domain.models;
+package com.lrcv.helpdesk.modules.technical.domain.models;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,8 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lrcv.helpdesk.modules.call.domain.models.Call;
 import com.lrcv.helpdesk.modules.person.domain.enums.Profile;
-import com.lrcv.helpdesk.modules.person.domain.models.dtos.TechnicalDTO;
+import com.lrcv.helpdesk.modules.person.domain.models.Person;
+import com.lrcv.helpdesk.modules.technical.domain.models.dtos.TechnicalDTO;
 
 @Entity
 public class Technical extends Person {

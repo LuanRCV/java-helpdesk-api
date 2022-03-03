@@ -1,4 +1,4 @@
-package com.lrcv.helpdesk.modules.person.domain.models.dtos;
+package com.lrcv.helpdesk.modules.technical.domain.models.dtos;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -11,9 +11,9 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.lrcv.helpdesk.modules.person.domain.enums.Profile;
-import com.lrcv.helpdesk.modules.person.domain.models.Customer;
+import com.lrcv.helpdesk.modules.technical.domain.models.Technical;
 
-public class CustomerDTO implements Serializable {
+public class TechnicalDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     protected Integer id;
@@ -35,24 +35,24 @@ public class CustomerDTO implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy")
     protected LocalDate createdAt = LocalDate.now();
 
-    public CustomerDTO() {
+    public TechnicalDTO() {
         super();
 
-        this.addProfile(Profile.CUSTOMER);
+        this.addProfile(Profile.TECHNICAL);
     }
 
-    public CustomerDTO(Customer customer) {
+    public TechnicalDTO(Technical technical) {
         super();
 
-        this.id = customer.getId();
-        this.name = customer.getName();
-        this.cpf = customer.getCpf();
-        this.email = customer.getEmail();
-        this.password = customer.getPassword();
-        this.profiles = customer.getProfiles().stream().map(profile -> profile.getCode()).collect(Collectors.toSet());
-        this.createdAt = customer.getCreatedAt();
+        this.id = technical.getId();
+        this.name = technical.getName();
+        this.cpf = technical.getCpf();
+        this.email = technical.getEmail();
+        this.password = technical.getPassword();
+        this.profiles = technical.getProfiles().stream().map(profile -> profile.getCode()).collect(Collectors.toSet());
+        this.createdAt = technical.getCreatedAt();
 
-        this.addProfile(Profile.CUSTOMER);
+        this.addProfile(Profile.TECHNICAL);
     }
 
     public Integer getId() {
@@ -115,16 +115,17 @@ public class CustomerDTO implements Serializable {
     public boolean equals(Object o) {
         if (o == this)
             return true;
-        if (!(o instanceof CustomerDTO)) {
+        if (!(o instanceof TechnicalDTO)) {
             return false;
         }
-        CustomerDTO customerDTO = (CustomerDTO) o;
-        return Objects.equals(id, customerDTO.id) && Objects.equals(cpf, customerDTO.cpf)
-                && Objects.equals(email, customerDTO.email);
+        TechnicalDTO technicalDTO = (TechnicalDTO) o;
+        return Objects.equals(id, technicalDTO.id) && Objects.equals(cpf, technicalDTO.cpf)
+                && Objects.equals(email, technicalDTO.email);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id, cpf, email);
     }
+
 }

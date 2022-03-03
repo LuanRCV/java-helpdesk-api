@@ -1,9 +1,9 @@
-package com.lrcv.helpdesk.modules.person.services;
+package com.lrcv.helpdesk.modules.customer.services;
 
 import java.util.Optional;
 
-import com.lrcv.helpdesk.modules.person.domain.models.Customer;
-import com.lrcv.helpdesk.modules.person.domain.repositories.CustomerRepository;
+import com.lrcv.helpdesk.modules.customer.domain.models.Customer;
+import com.lrcv.helpdesk.modules.customer.domain.repositories.CustomerRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

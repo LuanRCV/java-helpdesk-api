@@ -1,6 +1,6 @@
-package com.lrcv.helpdesk.modules.person.domain.repositories;
+package com.lrcv.helpdesk.modules.customer.domain.repositories;
 
-import com.lrcv.helpdesk.modules.person.domain.models.Customer;
+import com.lrcv.helpdesk.modules.customer.domain.models.Customer;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

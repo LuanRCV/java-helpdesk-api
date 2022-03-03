@@ -1,4 +1,4 @@
-package com.lrcv.helpdesk.modules.person.controllers;
+package com.lrcv.helpdesk.modules.customer.controllers;
 
 import java.net.URI;
 import java.util.List;
@@ -6,13 +6,13 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
-import com.lrcv.helpdesk.modules.person.domain.models.Customer;
-import com.lrcv.helpdesk.modules.person.domain.models.dtos.CustomerDTO;
-import com.lrcv.helpdesk.modules.person.services.CreateCustomerService;
-import com.lrcv.helpdesk.modules.person.services.DeleteCustomerService;
-import com.lrcv.helpdesk.modules.person.services.ListCustomerService;
-import com.lrcv.helpdesk.modules.person.services.ShowCustomerService;
-import com.lrcv.helpdesk.modules.person.services.UpdateCustomerService;
+import com.lrcv.helpdesk.modules.customer.domain.models.Customer;
+import com.lrcv.helpdesk.modules.customer.domain.models.dtos.CustomerDTO;
+import com.lrcv.helpdesk.modules.customer.services.CreateCustomerService;
+import com.lrcv.helpdesk.modules.customer.services.DeleteCustomerService;
+import com.lrcv.helpdesk.modules.customer.services.ListCustomerService;
+import com.lrcv.helpdesk.modules.customer.services.ShowCustomerService;
+import com.lrcv.helpdesk.modules.customer.services.UpdateCustomerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,18 +1,20 @@
-package com.lrcv.helpdesk.modules.person.services;
+package com.lrcv.helpdesk.modules.customer.services;
 
 import java.util.Optional;
 
-import com.lrcv.helpdesk.modules.person.domain.models.Customer;
+import javax.validation.Valid;
+
+import com.lrcv.helpdesk.modules.customer.domain.models.Customer;
+import com.lrcv.helpdesk.modules.customer.domain.models.dtos.CustomerDTO;
+import com.lrcv.helpdesk.modules.customer.domain.repositories.CustomerRepository;
 import com.lrcv.helpdesk.modules.person.domain.models.Person;
-import com.lrcv.helpdesk.modules.person.domain.models.dtos.CustomerDTO;
-import com.lrcv.helpdesk.modules.person.domain.repositories.CustomerRepository;
 import com.lrcv.helpdesk.modules.person.domain.repositories.PersonRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CreateCustomerService {
+public class UpdateCustomerService {
 
     @Autowired
     private CustomerRepository repository;
@@ -20,8 +22,8 @@ public class CreateCustomerService {
     @Autowired
     private PersonRepository personRepository;
 
-    public Customer execute(CustomerDTO customerDTO) {
-        customerDTO.setId(null);
+    public Customer execute(Integer id, @Valid CustomerDTO customerDTO) {
+        customerDTO.setId(id);
 
         Optional<Person> person = personRepository.findByCpf(customerDTO.getCpf());
 
@@ -35,7 +37,9 @@ public class CreateCustomerService {
             throw new Error("Email already registered");
         }
 
-        Customer customer = new Customer(customerDTO);
+        Customer customer = repository.findById(id).orElseThrow(() -> new Error("Customer not found"));
+
+        customer = new Customer(customerDTO);
 
         return repository.save(customer);
     }
