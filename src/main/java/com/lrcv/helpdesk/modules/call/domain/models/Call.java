@@ -5,11 +5,13 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.lrcv.helpdesk.modules.call.domain.enums.Priority;
@@ -17,6 +19,8 @@ import com.lrcv.helpdesk.modules.call.domain.enums.Status;
 import com.lrcv.helpdesk.modules.customer.domain.models.Customer;
 import com.lrcv.helpdesk.modules.technical.domain.models.Technical;
 
+@Entity
+@Table(name = "CALLS")
 public class Call implements Serializable {
     private static final long serialVersionUID = 1L;
 

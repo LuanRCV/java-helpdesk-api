@@ -15,6 +15,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.lrcv.helpdesk.modules.person.domain.enums.Profile;
@@ -22,6 +23,7 @@ import com.lrcv.helpdesk.modules.person.domain.enums.Profile;
 import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
+@Table(name = "PEOPLE")
 public abstract class Person implements Serializable {
     
     private static final long serialVersionUID = 1L;

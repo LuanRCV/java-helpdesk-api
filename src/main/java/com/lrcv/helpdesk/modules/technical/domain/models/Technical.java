@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lrcv.helpdesk.modules.call.domain.models.Call;
@@ -13,6 +14,7 @@ import com.lrcv.helpdesk.modules.person.domain.models.Person;
 import com.lrcv.helpdesk.modules.technical.domain.models.dtos.TechnicalDTO;
 
 @Entity
+@Table(name = "TECHNICALS")
 public class Technical extends Person {
 
     @JsonIgnore
