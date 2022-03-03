@@ -48,10 +48,10 @@ public class TechnicalController {
     @GetMapping
     public ResponseEntity<List<TechnicalDTO>> findAll() {
         List<Technical> technicals = listTechnicalService.execute();
-        List<TechnicalDTO> tecnicosDTO = technicals.stream().map(technical -> new TechnicalDTO(technical))
+        List<TechnicalDTO> technicalsDTO = technicals.stream().map(technical -> new TechnicalDTO(technical))
                 .collect(Collectors.toList());
 
-        return ResponseEntity.ok().body(tecnicosDTO);
+        return ResponseEntity.ok().body(technicalsDTO);
     }
 
     @GetMapping(value = "/{id}")

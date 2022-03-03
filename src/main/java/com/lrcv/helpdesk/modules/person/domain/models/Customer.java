@@ -9,6 +9,7 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lrcv.helpdesk.modules.call.domain.models.Call;
 import com.lrcv.helpdesk.modules.person.domain.enums.Profile;
+import com.lrcv.helpdesk.modules.person.domain.models.dtos.CustomerDTO;
 
 @Entity
 public class Customer extends Person {
@@ -25,6 +26,13 @@ public class Customer extends Person {
 
     public Customer(Integer id, String nome, String cpf, String email, String senha) {
         super(id, nome, cpf, email, senha);
+
+        this.addProfile(Profile.CUSTOMER);
+    }
+
+    public Customer(CustomerDTO customerDTO) {
+        super(customerDTO.getId(), customerDTO.getName(), customerDTO.getCpf(), customerDTO.getEmail(),
+                customerDTO.getPassword());
 
         this.addProfile(Profile.CUSTOMER);
     }
