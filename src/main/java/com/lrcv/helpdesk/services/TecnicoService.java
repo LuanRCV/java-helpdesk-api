@@ -3,6 +3,8 @@ package com.lrcv.helpdesk.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +43,26 @@ public class TecnicoService {
 		Tecnico tecnico = new Tecnico(tecnicoObjDTO);
 
 		return repository.save(tecnico);
+	}
+
+	public Tecnico update(Integer id, @Valid TecnicoDTO objDTO) {
+		objDTO.setId(id);
+		validaPorCpfEEmail(objDTO);
+
+		Tecnico obj = findById(id);
+		obj = new Tecnico(objDTO);
+
+		return repository.save(obj);
+	}
+
+	public void delete(Integer id) {
+		Tecnico obj = findById(id);
+
+		if (obj.getChamados().size() > 0) {
+			throw new DataIntegrityViolationException("Técnico possui ordens de serviço e não pode ser deletado");
+		}
+
+		repository.deleteById(id);
 	}
 
 	private void validaPorCpfEEmail(TecnicoDTO objDTO) {
