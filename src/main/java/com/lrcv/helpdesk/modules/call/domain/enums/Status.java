@@ -1,12 +1,12 @@
-package com.lrcv.helpdesk.modules.person.domain.enums;
+package com.lrcv.helpdesk.modules.call.domain.enums;
 
-public enum Priority {
-    LOW(0, "LOW"), MEDIUM(1, "MEDIUM"), HIGH(2, "HIGH");
+public enum Status {
+    OPENED(0, "OPENED"), INPROGRESS(1, "INPROGRESS"), CLOSED(2, "CLOSED");
 
     private Integer code;
     private String description;
 
-    private Priority(Integer code, String description) {
+    private Status(Integer code, String description) {
         this.code = code;
         this.description = description;
     }
@@ -27,17 +27,17 @@ public enum Priority {
         this.description = description;
     }
 
-    public static Priority toEnum(Integer code) {
+    public static Status toEnum(Integer code) {
         if (code == null) {
             return null;
         }
 
-        for (Priority priority : Priority.values()) {
-            if (code.equals(priority.getCode())) {
-                return priority;
+        for (Status status : Status.values()) {
+            if (code.equals(status.getCode())) {
+                return status;
             }
         }
 
-        throw new IllegalArgumentException("Invalid priority");
+        throw new IllegalArgumentException("Invalid status");
     }
 }

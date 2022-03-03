@@ -1,8 +1,5 @@
 package com.lrcv.helpdesk.modules.person.domain.enums;
 
-/**
- * Profiles
- */
 public enum Profile {
     ADMIN(0, "ROLE_ADMIN"), CUSTOMER(1, "CUSTOMER"), TECHNICAL(2, "TECHNICAL");
 
