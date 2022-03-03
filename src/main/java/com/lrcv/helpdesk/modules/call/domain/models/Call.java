@@ -16,8 +16,8 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.lrcv.helpdesk.modules.call.domain.enums.Priority;
 import com.lrcv.helpdesk.modules.call.domain.enums.Status;
-import com.lrcv.helpdesk.modules.customer.domain.models.Customer;
-import com.lrcv.helpdesk.modules.technical.domain.models.Technical;
+import com.lrcv.helpdesk.modules.person.domain.models.Customer;
+import com.lrcv.helpdesk.modules.person.domain.models.Technical;
 
 @Entity
 @Table(name = "CALLS")

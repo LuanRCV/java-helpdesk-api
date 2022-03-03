@@ -1,6 +1,6 @@
-package com.lrcv.helpdesk.modules.technical.domain.repositories;
+package com.lrcv.helpdesk.modules.person.domain.repositories;
 
-import com.lrcv.helpdesk.modules.technical.domain.models.Technical;
+import com.lrcv.helpdesk.modules.person.domain.models.Technical;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

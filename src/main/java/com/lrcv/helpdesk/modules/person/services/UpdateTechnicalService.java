@@ -1,14 +1,14 @@
-package com.lrcv.helpdesk.modules.technical.services;
+package com.lrcv.helpdesk.modules.person.services;
 
 import java.util.Optional;
 
 import javax.validation.Valid;
 
 import com.lrcv.helpdesk.modules.person.domain.models.Person;
+import com.lrcv.helpdesk.modules.person.domain.models.Technical;
+import com.lrcv.helpdesk.modules.person.domain.models.dtos.TechnicalDTO;
 import com.lrcv.helpdesk.modules.person.domain.repositories.PersonRepository;
-import com.lrcv.helpdesk.modules.technical.domain.models.Technical;
-import com.lrcv.helpdesk.modules.technical.domain.models.dtos.TechnicalDTO;
-import com.lrcv.helpdesk.modules.technical.domain.repositories.TechnicalRepository;
+import com.lrcv.helpdesk.modules.person.domain.repositories.TechnicalRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

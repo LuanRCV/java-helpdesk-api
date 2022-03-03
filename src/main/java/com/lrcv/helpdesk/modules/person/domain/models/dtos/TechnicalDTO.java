@@ -1,4 +1,4 @@
-package com.lrcv.helpdesk.modules.technical.domain.models.dtos;
+package com.lrcv.helpdesk.modules.person.domain.models.dtos;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.lrcv.helpdesk.modules.person.domain.enums.Profile;
-import com.lrcv.helpdesk.modules.technical.domain.models.Technical;
+import com.lrcv.helpdesk.modules.person.domain.models.Technical;
 
 public class TechnicalDTO implements Serializable {
     private static final long serialVersionUID = 1L;

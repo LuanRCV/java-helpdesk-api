@@ -1,20 +1,17 @@
-package com.lrcv.helpdesk.modules.technical.domain.models;
+package com.lrcv.helpdesk.modules.person.domain.models;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lrcv.helpdesk.modules.call.domain.models.Call;
 import com.lrcv.helpdesk.modules.person.domain.enums.Profile;
-import com.lrcv.helpdesk.modules.person.domain.models.Person;
-import com.lrcv.helpdesk.modules.technical.domain.models.dtos.TechnicalDTO;
+import com.lrcv.helpdesk.modules.person.domain.models.dtos.TechnicalDTO;
 
 @Entity
-@Table(name = "TECHNICALS")
 public class Technical extends Person {
 
     @JsonIgnore

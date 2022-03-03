@@ -1,19 +1,16 @@
-package com.lrcv.helpdesk.modules.customer.domain.models;
+package com.lrcv.helpdesk.modules.person.domain.models;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lrcv.helpdesk.modules.call.domain.models.Call;
 import com.lrcv.helpdesk.modules.person.domain.enums.Profile;
-import com.lrcv.helpdesk.modules.person.domain.models.Person;
 
 @Entity
-@Table(name = "CUSTOMERS")
 public class Customer extends Person {
 
     @JsonIgnore
