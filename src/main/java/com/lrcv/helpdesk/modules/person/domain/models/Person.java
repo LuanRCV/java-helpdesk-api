@@ -21,8 +21,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.lrcv.helpdesk.modules.person.domain.enums.Profile;
 
 import org.hibernate.validator.constraints.br.CPF;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 @Table(name = "PEOPLE")
