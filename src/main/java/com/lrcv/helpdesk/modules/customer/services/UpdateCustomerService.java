@@ -11,6 +11,7 @@ import com.lrcv.helpdesk.modules.person.domain.models.Person;
 import com.lrcv.helpdesk.modules.person.domain.repositories.PersonRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -22,8 +23,12 @@ public class UpdateCustomerService {
     @Autowired
     private PersonRepository personRepository;
 
+    @Autowired
+    private BCryptPasswordEncoder encoder;
+
     public Customer execute(Integer id, @Valid CustomerDTO customerDTO) {
         customerDTO.setId(id);
+        customerDTO.setPassword(encoder.encode(customerDTO.getPassword()));
 
         Optional<Person> person = personRepository.findByCpf(customerDTO.getCpf());
 

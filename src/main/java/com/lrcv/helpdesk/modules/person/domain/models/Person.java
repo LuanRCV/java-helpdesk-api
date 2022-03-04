@@ -21,6 +21,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.lrcv.helpdesk.modules.person.domain.enums.Profile;
 
 import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 @Table(name = "PEOPLE")
@@ -59,11 +61,11 @@ public abstract class Person implements Serializable {
     public Person(Integer id, String name, String cpf, String email, String password) {
         super();
 
-        this.id = id;
-        this.name = name;
-        this.cpf = cpf;
-        this.email = email;
-        this.password = password;
+        this.setId(id);
+        this.setName(name);
+        this.setCpf(cpf);
+        this.setEmail(email);
+        this.setPassword(password);
     }
 
     public Integer getId() {

@@ -9,6 +9,7 @@ import com.lrcv.helpdesk.modules.technical.domain.models.dtos.TechnicalDTO;
 import com.lrcv.helpdesk.modules.technical.domain.repositories.TechnicalRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,8 +21,12 @@ public class CreateTechnicalService {
     @Autowired
     private PersonRepository personRepository;
 
+    @Autowired
+    private BCryptPasswordEncoder encoder;
+
     public Technical execute(TechnicalDTO technicalDTO) {
         technicalDTO.setId(null);
+        technicalDTO.setPassword(encoder.encode(technicalDTO.getPassword()));
 
         Optional<Person> person = personRepository.findByCpf(technicalDTO.getCpf());
 
