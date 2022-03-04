@@ -17,6 +17,6 @@ public class ShowTechnicalService {
     public Technical execute(Integer id) {
         Optional<Technical> technical = repository.findById(id);
 
-        return technical.orElseThrow(() -> new Error("Object not found, Id:" + id));
+        return technical.orElseThrow(() -> new Error("Technical not found, Id:" + id));
     }
 }

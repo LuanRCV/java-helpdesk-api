@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.lrcv.helpdesk.modules.call.domain.enums.Priority;
 import com.lrcv.helpdesk.modules.call.domain.enums.Status;
+import com.lrcv.helpdesk.modules.call.domain.models.dtos.CallDTO;
 import com.lrcv.helpdesk.modules.customer.domain.models.Customer;
 import com.lrcv.helpdesk.modules.technical.domain.models.Technical;
 
@@ -67,6 +68,18 @@ public class Call implements Serializable {
         this.status = status;
         this.title = title;
         this.comments = comments;
+        this.technical = technical;
+        this.customer = customer;
+    }
+
+    public Call(CallDTO callDTO, Technical technical, Customer customer) {
+        super();
+
+        this.id = callDTO.getId();
+        this.priority = Priority.toEnum(callDTO.getPriority());
+        this.status = Status.toEnum(callDTO.getStatus());
+        this.title = callDTO.getTitle();
+        this.comments = callDTO.getComments();
         this.technical = technical;
         this.customer = customer;
     }

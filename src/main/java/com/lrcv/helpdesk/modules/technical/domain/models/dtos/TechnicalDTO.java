@@ -18,16 +18,16 @@ public class TechnicalDTO implements Serializable {
 
     protected Integer id;
 
-    @NotNull(message = "O campo Nome é obrigatório")
+    @NotNull(message = "Field Name is required")
     protected String name;
 
-    @NotNull(message = "O campo CPF é obrigatório")
+    @NotNull(message = "Field CPF is required")
     protected String cpf;
 
-    @NotNull(message = "O campo email é obrigatório")
+    @NotNull(message = "Field E-mail is required")
     protected String email;
 
-    @NotNull(message = "O campo senha é obrigatório")
+    @NotNull(message = "Field Password is required")
     protected String password;
 
     protected Set<Integer> profiles = new HashSet<>();
