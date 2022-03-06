@@ -16,6 +16,7 @@ import com.lrcv.helpdesk.modules.customer.services.UpdateCustomerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -61,6 +62,7 @@ public class CustomerController {
         return ResponseEntity.ok().body(new CustomerDTO(customer));
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping
     public ResponseEntity<CustomerDTO> create(@Valid @RequestBody CustomerDTO customerDTO) {
         Customer customer = createCustomerService.execute(customerDTO);
@@ -71,6 +73,7 @@ public class CustomerController {
         return ResponseEntity.created(uri).build();
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PutMapping(value = "/{id}")
     public ResponseEntity<CustomerDTO> update(@PathVariable Integer id,
             @Valid @RequestBody CustomerDTO customerDTO) {
@@ -79,6 +82,7 @@ public class CustomerController {
         return ResponseEntity.ok().body(new CustomerDTO(customer));
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<CustomerDTO> delete(@PathVariable Integer id) {
         deleteCustomerService.execute(id);
